@@ -14,8 +14,16 @@ const client = new Client({
 client.connect()
 
 app.get("/attendees", (req, resp) => {
+    let filterName = req.query.filterName;
+
+    const myQuery = {
+        text: "SELECT * FROM attendees WHERE fullname LIKE $1",
+        values: ["%"+filterName+"%"]
+    }
+
+
     client
-        .query('SELECT * FROM attendees')
+        .query(myQuery)
         .then((resuits) => {
             console.log("Success!");
             console.log(resuits.rowCount);
