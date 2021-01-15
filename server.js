@@ -112,6 +112,37 @@ app.get("/attendees", (req, resp) => {
         });
 });
 
+app.get("/attendees/DELETE/:id", (req, resp) => {
+    console.log("In /attendees/DELETE using GET");
+
+    const myQuery = {
+        text: "DELETE FROM attendees WHERE id = $1",
+        values: [req.params.id]
+    }
+
+    client
+        .query(myQuery)
+        .then((resuits) => {
+            console.log("Success!");
+            console.log(resuits.rowCount);
+            resp.writeHead(200, {
+                "Content-Type": "text/json"
+            });
+            resp.write(JSON.stringify("ok"));
+            resp.end();
+        })
+        .catch((error) => {
+            console.log("Ooops!");
+            console.log(error);
+            resp.writeHead(200, {
+                "Content-Type": "text/json"
+            })
+            resp.write(JSON.stringify("Failed"));
+            resp.end();
+        });
+});
+
+
 app.get("/", (req, resp) => {
     resp.write("In GET /");
     resp.end();
