@@ -85,8 +85,9 @@ app.post("/attendees", (req, resp) => {
         });
 })
 
-app.put("/attendees", (req, resp) => {
-    console.log("In /attendeess PUT");
+function insertFromAPIEndpoint(req, resp) {
+
+    console.log("In /attendeess PUT using the POST (workaround)");
 
 
     // req.body.id
@@ -117,7 +118,11 @@ app.put("/attendees", (req, resp) => {
             resp.write(JSON.stringify("Failed"));
             resp.end();
         });
-})
+}
+
+app.post("/attendees/PUT/", insertFromAPIEndpoint)
+
+app.put("/attendees", insertFromAPIEndpoint)
 
 app.get("/attendees", (req, resp) => {
     let filterName = req.query.name ? req.query.name : "";
