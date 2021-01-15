@@ -89,7 +89,7 @@ app.get("/attendees", (req, resp) => {
     let filterName = req.query.name ? req.query.name : "";
     console.log(filterName);  
     const myQuery = {
-        text: "SELECT * FROM attendees WHERE fullname LIKE $1",
+        text: "SELECT * FROM attendees WHERE UPPER(fullname) LIKE UPPER($1)",
         values: ["%"+filterName+"%"]
     }
 
