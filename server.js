@@ -35,7 +35,8 @@ app.delete("/attendees/:id", (req, resp) => {
             console.log("Success!");
             console.log(resuits.rowCount);
             resp.writeHead(200, {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*",
             });
             resp.write(JSON.stringify("ok"));
             resp.end();
@@ -44,7 +45,8 @@ app.delete("/attendees/:id", (req, resp) => {
             console.log("Ooops!");
             console.log(error);
             resp.writeHead(200, {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*",
             })
             resp.write(JSON.stringify("Failed"));
             resp.end();
@@ -65,7 +67,8 @@ app.post("/attendees", (req, resp) => {
             console.log("Success!");
             console.log(resuits.rowCount);
             resp.writeHead(200, {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*",
             });
             resp.write(JSON.stringify("ok"));
             resp.end();
@@ -74,7 +77,8 @@ app.post("/attendees", (req, resp) => {
             console.log("Ooops!");
             console.log(error);
             resp.writeHead(200, {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*",
             })
             resp.write(JSON.stringify("Failed"));
             resp.end();
@@ -96,7 +100,8 @@ app.get("/attendees", (req, resp) => {
             console.log("Success!");
             console.log(resuits.rowCount);
             resp.writeHead(200, {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*",
             });
             resp.write(JSON.stringify(resuits.rows));
             resp.end();
@@ -105,7 +110,8 @@ app.get("/attendees", (req, resp) => {
             console.log("Ooops!");
             console.log(error);
             resp.writeHead(200, {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*",
             })
             resp.write(JSON.stringify("Failed"));
             resp.end();
@@ -126,7 +132,8 @@ app.get("/attendees/DELETE/:id", (req, resp) => {
             console.log("Success!");
             console.log(resuits.rowCount);
             resp.writeHead(200, {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*",
             });
             resp.write(JSON.stringify("ok"));
             resp.end();
@@ -135,7 +142,8 @@ app.get("/attendees/DELETE/:id", (req, resp) => {
             console.log("Ooops!");
             console.log(error);
             resp.writeHead(200, {
-                "Content-Type": "text/json"
+                "Content-Type": "text/json",
+                "Access-Control-Allow-Origin": "*",
             })
             resp.write(JSON.stringify("Failed"));
             resp.end();
