@@ -86,7 +86,7 @@ app.post("/attendees", (req, resp) => {
 })
 
 app.get("/attendees", (req, resp) => {
-    let filterName = req.query.filterName ? req.query.filterName : "";
+    let filterName = req.query.name ? req.query.name : "";
     console.log(filterName);  
     const myQuery = {
         text: "SELECT * FROM attendees WHERE fullname LIKE $1",
